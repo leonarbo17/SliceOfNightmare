@@ -1,5 +1,5 @@
 # ==========================
-# Unity - Essential Gitignore for Version Control
+# Unity - Essential Gitignore
 # ==========================
 
 # Unity generated folders
@@ -43,7 +43,7 @@ mono_crash.*
 # Auto-generated test scenes
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
-# Builds / packages (don't version compiled game files)
+# Builds / packages (compiled game files)
 *.apk
 *.aab
 *.app
@@ -57,7 +57,7 @@ mono_crash.*
 # ==========================
 # Keep only essential folders
 # ==========================
-# /Assets/        --> All your assets, scripts, scenes, prefabs
-# /Packages/      --> Unity package dependencies
-# /ProjectSettings/ --> Project configuration
+/Assets/
+/Packages/
+/ProjectSettings/
 
