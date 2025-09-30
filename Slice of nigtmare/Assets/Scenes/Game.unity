@@ -13635,7 +13635,7 @@ MonoBehaviour:
   rotationSpeed: 180
   targetRotationX: -183
   audioSource: {fileID: 331645056}
-  interactionClip: {fileID: 8300000, guid: 2d16860e4efd3a145b089f0422b85b1b, type: 3}
+  interactionClip: {fileID: 8300000, guid: 442bcb1311c221f468dff20177c54813, type: 3}
   object1: {fileID: 331645050}
   newTag1: Untagged
   object2: {fileID: 0}
