@@ -13625,21 +13625,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766f91c575fa5324194319c7821ae3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 330585545}
-  interactDistance: 3
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 4096
-  targetTag: Interact
-  objectToRotate: {fileID: 331645050}
+  leverHandle: {fileID: 331645050}
   rotationSpeed: 180
   targetRotationX: -183
-  audioSource: {fileID: 331645056}
-  interactionClip: {fileID: 8300000, guid: 442bcb1311c221f468dff20177c54813, type: 3}
-  object1: {fileID: 331645050}
-  newTag1: Untagged
-  object2: {fileID: 0}
-  newTag2: Untagged
+  audio1: {fileID: 284852210}
+  audio2: {fileID: 1531025191}
+  lightsParent: {fileID: 1365244378}
+  colliderToEnable: {fileID: 0}
+  satanicSymbol: {fileID: 0}
+  dialogueLine: That should be enough.
+  replyLines: []
 --- !u!1001 &333422897
 PrefabInstance:
   m_ObjectHideFlags: 0
