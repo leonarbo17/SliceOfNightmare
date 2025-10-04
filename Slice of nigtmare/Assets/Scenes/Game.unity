@@ -13700,10 +13700,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leverHandle: {fileID: 331645050}
-  rotationSpeed: 180
   targetRotationX: -183
-  audio1: {fileID: 284852210}
-  audio2: {fileID: 1531025191}
+  rotationSpeed: 180
+  leverSound: {fileID: 0}
+  playerCamera: {fileID: 330585545}
+  cameraTarget: {fileID: 0}
+  cameraMoveDuration: 1.5
+  audio1: {fileID: 1531025191}
+  audio2: {fileID: 284852210}
   lightsParent: {fileID: 1365244378}
   colliderToEnable: {fileID: 1079560377}
   satanicSymbol: {fileID: 1853002779}
@@ -74313,7 +74317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57905f6fdfa57644d91d30b74ce8a813, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.307
+      value: 0.136
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 57905f6fdfa57644d91d30b74ce8a813, type: 3}
       propertyPath: m_LocalPosition.y
