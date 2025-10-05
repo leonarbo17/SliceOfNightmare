@@ -7338,16 +7338,10 @@ PrefabInstance:
       addedObject: {fileID: 2128071908}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2128071907}
+      addedObject: {fileID: 2128071910}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2128071906}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2128071905}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2128071904}
+      addedObject: {fileID: 2128071909}
   m_SourcePrefab: {fileID: 100100000, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
 --- !u!1001 &176630679
 PrefabInstance:
@@ -109293,65 +109287,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
   m_PrefabInstance: {fileID: 176117108}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2128071904
-MonoBehaviour:
+--- !u!195 &2128071908
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128071903}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46a30cd5155df44f90aed70ef77ede3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcAgent: {fileID: 2128071908}
-  destination: {fileID: 19658154}
-  footstepAudio: {fileID: 2128071907}
---- !u!114 &2128071905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128071903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c30f28fe57af8fc4b97b7b56840af4a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueLine: hola ser
-  replyLines:
-  - pizza please
-  - ok
-  dialogueWithPizza: aquie eta
-  replyWithPizza:
-  - gracias
---- !u!114 &2128071906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128071903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7620abd422680448b8ae9cf5db30c18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 330585545}
-  interactDistance: 3
-  npcLayer:
-    serializedVersion: 2
-    m_Bits: 8192
-  eToInteractUI: {fileID: 182663745}
-  npcAnimator: {fileID: 2128071909}
-  rotate180Trigger: Rotate180
-  smoothRotation: 1
-  smoothDuration: 0.2
-  nextDestination: {fileID: 253121324}
-  agent: {fileID: 2128071908}
---- !u!82 &2128071907
+  m_AgentTypeID: 0
+  m_Radius: 0.22
+  m_Speed: 1.5
+  m_Acceleration: 7
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.83
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!82 &2128071909
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109448,29 +109406,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!195 &2128071908
-NavMeshAgent:
+--- !u!114 &2128071910
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128071903}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.22
-  m_Speed: 1.5
-  m_Acceleration: 7
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.83
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!95 &2128071909 stripped
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696f731c4d39f35418c25c93ce324476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {fileID: 19658154}
+  footstepAudio: {fileID: 2128071909}
+  animator: {fileID: 2128071911}
+  triggerObject: {fileID: 1079560376}
+  playerTag: Player
+--- !u!95 &2128071911 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
   m_PrefabInstance: {fileID: 176117108}
