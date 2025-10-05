@@ -8,6 +8,7 @@ TagManager:
   - Interact
   - PizzaBox
   - PizzaInHand
+  - TriggerStartWalking
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Trash
   - CupGenerator
   - leverGenerator
-  - 
+  - NPC1
   - 
   - 
   - 

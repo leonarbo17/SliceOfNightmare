@@ -148,6 +148,12 @@ public class playterMove : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * inputX);
     }
+    public void SetPlayerControl(bool state)
+    {
+        canMove = state;
+        canMouseRotate = state;
+        canSprint = state;
+    }
 
     void PlayFootstep()
     {

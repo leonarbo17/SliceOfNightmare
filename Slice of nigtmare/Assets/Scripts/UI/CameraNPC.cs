@@ -9,7 +9,7 @@ namespace CameraNPCScript
         public GameObject interactImage;
         public GameObject otherImage;
 
-        private ExitTrigger currentDialogue;
+        private DialogueTrigger currentDialogue;
 
         void Start()
         {
@@ -27,7 +27,7 @@ namespace CameraNPCScript
             {
                 if (currentDialogue == null || hit.transform.gameObject != currentDialogue.gameObject)
                 {
-                    currentDialogue = hit.transform.GetComponentInChildren<ExitTrigger>();
+                    currentDialogue = hit.transform.GetComponentInChildren<DialogueTrigger>();
                 }
 
                 if (currentDialogue != null)

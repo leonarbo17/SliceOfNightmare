@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ExitTrigger : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour
 {
     [Header("Diálogo al intentar salir")]
     [TextArea(2, 4)] public string dialogueLine;
