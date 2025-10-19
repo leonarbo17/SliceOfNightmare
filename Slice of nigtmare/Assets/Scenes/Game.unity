@@ -7342,6 +7342,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2128071909}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2128071914}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2128071913}
   m_SourcePrefab: {fileID: 100100000, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
 --- !u!1001 &176630679
 PrefabInstance:
@@ -44972,6 +44978,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0509744eed6f16e4c98e542f790a84b5, type: 3}
+--- !u!1 &959991779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 959991781}
+  - component: {fileID: 959991780}
+  m_Layer: 0
+  m_Name: TriggerRitual_1
+  m_TagString: TriggerStartWalking
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &959991780
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959991779}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.39, y: 6.01, z: 0.09}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &959991781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959991779}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1079560378}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &960822343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4737365782299246, guid: 0509744eed6f16e4c98e542f790a84b5, type: 3}
@@ -48857,7 +48916,7 @@ GameObject:
   - component: {fileID: 1079560379}
   m_Layer: 0
   m_Name: TriggerRitual
-  m_TagString: TriggerStartWalking
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48895,7 +48954,8 @@ Transform:
   m_LocalPosition: {x: 1.502, y: 1.8199998, z: -5.762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 959991781}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1079560379
@@ -95154,7 +95214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1855654935}
   m_Layer: 0
-  m_Name: Route2Leonard
+  m_Name: RouteLeonard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109413,7 +109473,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128071903}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 696f731c4d39f35418c25c93ce324476, type: 3}
   m_Name: 
@@ -109421,13 +109481,58 @@ MonoBehaviour:
   destination: {fileID: 19658154}
   footstepAudio: {fileID: 2128071909}
   animator: {fileID: 2128071911}
-  triggerObject: {fileID: 1079560376}
+  triggerObject: {fileID: 959991779}
   playerTag: Player
 --- !u!95 &2128071911 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 4522fd0f8c1e6214da33bd05e450ebbd, type: 3}
   m_PrefabInstance: {fileID: 176117108}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2128071913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128071903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30f28fe57af8fc4b97b7b56840af4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueLine: '  hola'
+  replyLines:
+  - dame de comer
+  - yaaa
+  - okey
+  dialogueWithPizza: aqui ta
+  replyWithPizza:
+  - thanks
+  - bye
+--- !u!114 &2128071914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128071903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7620abd422680448b8ae9cf5db30c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 330585545}
+  interactDistance: 3
+  npcLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  eToInteractUI: {fileID: 182663745}
+  npcAnimator: {fileID: 1622504357}
+  rotate180Trigger: Rotate180
+  smoothRotation: 1
+  smoothDuration: 0.2
+  nextDestination: {fileID: 253121324}
+  agent: {fileID: 1622504360}
 --- !u!1001 &2130827285
 PrefabInstance:
   m_ObjectHideFlags: 0
