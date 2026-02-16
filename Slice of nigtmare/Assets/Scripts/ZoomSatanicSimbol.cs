@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ZoomSatanicSimbol : MonoBehaviour
+public class RitualCameraEvent : MonoBehaviour
 {
     [Header("Cámara")]
     public Camera playerCamera;
@@ -28,6 +28,7 @@ public class ZoomSatanicSimbol : MonoBehaviour
     public float walkSoundSpeedThreshold = 0.1f;
 
     private bool triggered = false;
+    private bool luisArrived = false;
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class ZoomSatanicSimbol : MonoBehaviour
 
             if (luisAgent != null && luisDestinationA != null)
             {
+                luisArrived = false;
                 luisAgent.isStopped = false;
                 luisAgent.SetDestination(luisDestinationA.position);
                 StartCoroutine(WatchLuisArrival());
@@ -65,7 +67,7 @@ public class ZoomSatanicSimbol : MonoBehaviour
 
     private void Update()
     {
-        if (luisAgent != null && luisAnimator != null)
+        if (luisAgent != null && luisAnimator != null && !luisArrived)
         {
             float speed = luisAgent.velocity.magnitude;
             luisAnimator.SetFloat("Speed", speed);
@@ -96,6 +98,8 @@ public class ZoomSatanicSimbol : MonoBehaviour
             if (!luisAgent.pathPending &&
                 luisAgent.remainingDistance <= luisAgent.stoppingDistance)
             {
+                luisArrived = true;
+
                 luisAgent.isStopped = true;
                 luisAgent.velocity = Vector3.zero;
 
