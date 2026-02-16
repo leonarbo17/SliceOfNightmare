@@ -1,23 +1,42 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class RitualCameraEvent : MonoBehaviour
+public class ZoomSatanicSimbol : MonoBehaviour
 {
-    [Header("C·mara")]
+    [Header("C√°mara")]
     public Camera playerCamera;
-    public Transform ritualTarget;         // Objeto que quieres enfocar (ritual)
-    public float focusDuration = 2f;       // Tiempo para girar la c·mara
-    public float zoomFOV = 40f;            // FOV durante el zoom
+    public Transform ritualTarget;
+    public float focusDuration = 2f;
+    public float zoomFOV = 40f;
     private float originalFOV;
 
     [Header("Jugador")]
-    public playterMove playerMove;         // Script de movimiento
+    public playterMove playerMove;
 
-    [Header("Di·logo")]
+    [Header("Di√°logo")]
     [TextArea(2, 4)] public string dialogueLine;
     [TextArea(2, 4)] public string[] replyLines;
 
+    [Header("NPC Luis")]
+    public NavMeshAgent luisAgent;
+    public Transform luisDestinationA;
+    public Animator luisAnimator;
+    public AudioSource luisFootstepAudio;
+
+    [Header("Opciones pasos")]
+    public float walkSoundSpeedThreshold = 0.1f;
+
     private bool triggered = false;
+
+    private void Start()
+    {
+        if (luisFootstepAudio != null)
+        {
+            luisFootstepAudio.loop = true;
+            luisFootstepAudio.playOnAwake = false;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,7 +46,16 @@ public class RitualCameraEvent : MonoBehaviour
         {
             triggered = true;
 
-            if (playerMove == null) playerMove = other.GetComponent<playterMove>();
+            if (playerMove == null)
+                playerMove = other.GetComponent<playterMove>();
+
+            if (luisAgent != null && luisDestinationA != null)
+            {
+                luisAgent.isStopped = false;
+                luisAgent.SetDestination(luisDestinationA.position);
+                StartCoroutine(WatchLuisArrival());
+            }
+
             if (playerCamera != null && ritualTarget != null)
             {
                 StartCoroutine(FocusOnRitual());
@@ -35,17 +63,63 @@ public class RitualCameraEvent : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (luisAgent != null && luisAnimator != null)
+        {
+            float speed = luisAgent.velocity.magnitude;
+            luisAnimator.SetFloat("Speed", speed);
+
+            if (luisFootstepAudio != null)
+            {
+                if (speed > walkSoundSpeedThreshold)
+                {
+                    if (!luisFootstepAudio.isPlaying)
+                        luisFootstepAudio.Play();
+                }
+                else
+                {
+                    if (luisFootstepAudio.isPlaying)
+                        luisFootstepAudio.Stop();
+                }
+            }
+        }
+    }
+
+    private IEnumerator WatchLuisArrival()
+    {
+        while (luisAgent.pathPending)
+            yield return null;
+
+        while (true)
+        {
+            if (!luisAgent.pathPending &&
+                luisAgent.remainingDistance <= luisAgent.stoppingDistance)
+            {
+                luisAgent.isStopped = true;
+                luisAgent.velocity = Vector3.zero;
+
+                if (luisAnimator != null)
+                    luisAnimator.SetFloat("Speed", 0f);
+
+                if (luisFootstepAudio != null && luisFootstepAudio.isPlaying)
+                    luisFootstepAudio.Stop();
+
+                yield break;
+            }
+
+            yield return null;
+        }
+    }
+
     private IEnumerator FocusOnRitual()
     {
-        // Bloquear controles
         if (playerMove != null)
             playerMove.SetPlayerControl(false);
 
-        // Guardar valores originales
         Quaternion originalRot = playerCamera.transform.rotation;
         originalFOV = playerCamera.fieldOfView;
 
-        // Calcular la rotaciÛn hacia el ritual
         Vector3 dirToTarget = (ritualTarget.position - playerCamera.transform.position).normalized;
         Quaternion targetRot = Quaternion.LookRotation(dirToTarget, Vector3.up);
 
@@ -53,29 +127,22 @@ public class RitualCameraEvent : MonoBehaviour
         while (t < 1f)
         {
             t += Time.deltaTime / focusDuration;
-
-            // Interpolar rotaciÛn
             playerCamera.transform.rotation = Quaternion.Slerp(originalRot, targetRot, t);
-
-            // Interpolar FOV
             playerCamera.fieldOfView = Mathf.Lerp(originalFOV, zoomFOV, t);
-
             yield return null;
         }
 
-        // Lanzar di·logo
         if (DialogueManager.Instance != null && !string.IsNullOrEmpty(dialogueLine))
         {
             DialogueManager.Instance.ShowDialogue(dialogueLine, replyLines, false);
         }
 
-        // Esperar a que termine el di·logo
-        while (DialogueManager.Instance != null && DialogueManager.Instance.IsDialoguePanelOpen())
+        while (DialogueManager.Instance != null &&
+               DialogueManager.Instance.IsDialoguePanelOpen())
         {
             yield return null;
         }
 
-        // Regresar c·mara a estado original
         t = 0f;
         while (t < 1f)
         {
@@ -85,11 +152,9 @@ public class RitualCameraEvent : MonoBehaviour
             yield return null;
         }
 
-        // Reactivar controles
         if (playerMove != null)
             playerMove.SetPlayerControl(true);
 
-        // Desactivar trigger
         gameObject.SetActive(false);
     }
 }
